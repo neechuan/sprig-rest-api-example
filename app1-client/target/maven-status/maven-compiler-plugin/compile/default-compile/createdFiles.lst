@@ -1,0 +1,5 @@
+com/example/app1client/controller/ClientController.class
+com/example/app1client/service/ProductClientService.class
+com/example/app1client/config/RestTemplateConfig.class
+com/example/app1client/model/Product.class
+com/example/app1client/App1ClientApplication.class
