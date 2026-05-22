@@ -1,0 +1,318 @@
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  f5ccaecc-df22-4d6d-b6dc-6cb7f394861b  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now flushing all 40 buffered log messages based on Normal Bootstrapping
+Checking for all Java Agents...
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  63abe925-9f97-4707-b0f0-60459a94a047  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] APM Agent Location is /Users/garychew/AppServerAgent/javaagent.jar
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  ffcd0609-422d-448b-a34a-39d8a928cf20  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] APM Agent installation directory: /Users/garychew/AppServerAgent
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  85577e0c-1602-4e9c-9a15-a708671c3114  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Could not determine AppDynamics config Setting for (appdynamics.agent.conf.dir, APPDYNAMICS_AGENT_CONFIG_DIR, null)
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  055434ed-6651-4b4a-8a80-983f158f98c1  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Could not determine AppDynamics config Setting for (appdynamics.global.config.dir, APPDYNAMICS_GLOBAL_CONFIG_DIR, null)
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  aa554894-1d13-4e0c-aa42-e13f5512ee8f  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] APM Install Dir is parent of a global config folder...
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  f1118cd4-6db5-4c8c-a56f-75bf5136b122  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] APM Agent global config found here: /Users/garychew/AppServerAgent/conf
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  bf956d8b-67a8-4a4e-bc45-66757d5af354  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] APM Agent version config found here: /Users/garychew/AppServerAgent/ver26.2.1.37810/conf
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  467332ed-0772-4611-b4f4-fe7913503b2c  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Property file APM Agent version config agent.properties does not exist here: /Users/garychew/AppServerAgent/ver26.2.1.37810/conf/agent.properties
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  1c5b3da8-0ee2-42a1-8cb4-4699936b4176  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Property file APM Agent global config agent.properties does not exist here: /Users/garychew/AppServerAgent/conf/agent.properties
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  7ad95166-c08c-48cb-a20c-1c1dedddfa7a  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] >>>>>>>>>>>> APM Agent version config controller-info.xml
+ content==>
+<?xml version="1.0" encoding="UTF-8"?>
+<controller-info>
+    <!-- For detailed information on the ways you can configure the Java Agent
+    and configuration order of precedence, see:
+    https://docs.appdynamics.com/display/LATEST/Administer+the+Java+Agent
+
+    The agent applies configurations in the following order of precedence.
+      1. Environment variables.
+      2. System properties passed on the command line.
+      3. Versioned agent properties.    /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/agent.properties
+      4. Global agent properties.       /$(Agent-Base-Install-Dir)/conf/agent.properties
+      5. Versioned configuration file.  /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/controller-info.xml
+      6. Global configuration file.     /$(Agent-Base-Install-Dir)/conf/controller-info.xml -->
+
+    <!-- The host name or the IP address of the AppDynamics Controller.
+    For example, ************ or myhost or myhost.abc.com
+    This is the same host that you use to access the AppDynamics Controller user interface.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_HOST_NAME' or
+    the system property '-Dappdynamics.controller.hostName' -->
+    <controller-host></controller-host>
+
+    <!-- The http(s) port of the AppDynamics Controller. If 'controller-ssl-enabled' below is set to true, you must
+    specify the HTTPS port of the Controller, otherwise specify the HTTP port. The Controller listens on port 8090 by default.
+    If you set 'controller-ssl-enabled' to true, the Controller listens on port 8181.
+    If you are using a saas Controller, the ssl port is 443
+    This is the same port that you use to access the AppDynamics Controller user interface.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_PORT' or
+    the system property '-Dappdynamics.controller.port' -->
+    <controller-port></controller-port>
+
+    <!-- Connect to the Controller using SSL(HTTPS). If you set this to true,
+    set the controller-port property to the HTTPS port for the Controller.
+    The agent only connects to the Controller using SSL when you enable this property. Otherwise, the
+    agent connects to the Controller using HTTP.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_SSL_ENABLED' or
+    the system property '-Dappdynamics.controller.ssl.enabled' -->
+    <controller-ssl-enabled></controller-ssl-enabled>
+
+    <!-- Truncate the hostname to remove the domain name.
+    For example, 'server.mydomain.com' becomes 'server'. Hostnames with no domain remain unchanged.
+    For exmaple; 'server'. -->
+    <use-simple-hostname>*****</use-simple-hostname>
+
+    <!-- The logical business application name that this jvm node belongs to.
+    This is not the deployment name (ear/war/jar) on the application server.
+    For example, you may name a business application name 'ACME Portal' if you are monitoring
+    a portal application or 'ACME ECommerce' etc. If a business application of this name does not exist,
+    the Controller creates one automatically.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_APPLICATION_NAME' or
+    the system property '-Dappdynamics.agent.applicationName' -->
+    <application-name></application-name>
+
+    <!-- The logical business tier this node belongs to.
+    For example, a tier can be 'ACME Frontend' or 'ACME Backend Service' etc.
+    If your JVM / appserver startup script contains a system property that you want to use for the tier name,
+    for example, -Dserver.tier, you can refer to the system property similarly: ${server.tier}
+    You can use expressions like ${server.tier}_${some.property}.MyTier to define the tier name.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_TIER_NAME' or
+    the system property '-Dappdynamics.agent.tierName' -->
+    <tier-name></tier-name>
+
+    <!-- Unique name for this jvm node. The name must be unique within the business application. e.g. weblogicinstance23 or
+    hweb24. If your JVM / appserver startup script contains a system property that you want to use for the node name,
+    For example, -Dserver.name, you can refer to the system property similarly: ${server.name}.
+    The value for server.name will be used as AppDynamics node name.
+    You can use expressions like ${server.name}_${host.name}.MyNode to define the node name.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_NODE_NAME' or
+    the system property '-Dappdynamics.agent.nodeName' -->
+    <node-name></node-name>
+
+    <!-- The runtime directory for all runtime files (logs, transaction configuration) for agent nodes using this agent
+    installation. This optional property defaults to the agent-installation-directory . If you specify a different directory,
+    the agent writes all agent logs to agent-runtime-dir/logs/node-name. The agent writes transaction configuration to files to
+    agent-runtime-dir/conf/node-name. You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_BASE_DIR'
+    or the system property '-Dappdynamics.agent.runtime.dir' -->
+    <agent-runtime-dir></agent-runtime-dir>
+
+    <!-- Enable features required for AppDynamics Orchestration.
+    When true, the agent is able to resolve the AppDynamics Controller host and port
+    when the host machine where this agent resides is created through AppDynamics Orchestration.
+    If the host machine where this agent resides is NOT created through Orchestration then LEAVE
+    this flag set to 'false'. -->
+    <enable-orchestration>false</enable-orchestration>
+
+    <!-- Encrypt agent credentials.
+    Before you enable Use Encrypted Credentials, see the instructions on how to initialize the
+    Secure Credential Store:
+    https://docs.appdynamics.com/display/LATEST/Encrypt+Credentials+for+Agent+Configuration
+    When true, the agent to uses encrypted credentials from the secure credential store.
+    When true, you must supply the credential store file name and the obfuscated credential store password. -->
+    <use-encrypted-credentials></use-encrypted-credentials>
+    <!-- Full qualified path name for the SCS-KeyStore file name. -->
+    <credential-store-filename></credential-store-filename>
+    <!-- Password for the 'Secure Credential Store' (SCS). This password must be obfuscated. -->
+    <credential-store-password></credential-store-password>
+    <!-- Format for the 'Secure Credential Store' (SCS).
+    The default format is JCEKS, but if a format like FIPS and a different security provider is chosen,
+    it should be ensured that all other certificates like cacerts also should be in this format -->
+    <credential-store-format></credential-store-format>
+    <!-- Enable agent-side mutual authentication with the Controller. Required when the Controller is configured for client authentication -->
+    <use-ssl-client-auth>false</use-ssl-client-auth>
+    <!-- Asymmetric keystore filename -->
+    <asymmetric-keystore-filename></asymmetric-keystore-filename>
+    <!-- Asymmetric keystore password - If SCS is enabled, use the encrypted password. -->
+    <asymmetric-keystore-password></asymmetric-keystore-password>
+    <!-- Asymmetric key password - If SCS is enabled, use the encrypted password. -->
+    <asymmetric-key-password></asymmetric-key-password>
+    <!-- Asymmetric key alias - Only set this alias if the keystore has multiple keys for deterministic key selection.-->
+    <asymmetric-key-alias></asymmetric-key-alias>
+
+    <!-- The account name for multi-tenant Controllers.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_ACCOUNT_NAME' or
+    the system property '-Dappdynamics.agent.accountName' -->
+    <account-name></account-name>
+    <!-- The account access key.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY' or
+    the system property '-Dappdynamics.agent.accountAccessKey'
+    if 'use-encrypted-credentials' is set to true, use the encrypted the account access key. -->
+    <account-access-key></account-access-key>
+
+    <!-- Change to 'true' only under special circumstances when you want to override this node's application name
+    or tier name after this agent has been moved to a new application and/or tier in the Controller UI. When true,
+    the agent uses the application name and/or tier name from the configuration file.-->
+    <force-agent-registration>false</force-agent-registration>
+
+
+</controller-info>
+
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  77c68574-cc85-4ac2-9e0d-5b1e8330a3bf  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] >>>>>>>>>>>> APM Agent global config controller-info.xml
+ content==>
+<?xml version="1.0" encoding="UTF-8"?>
+<controller-info>
+    <!-- For detailed information on the ways you can configure the Java Agent
+    and configuration order of precedence, see:
+    https://docs.appdynamics.com/display/LATEST/Administer+the+Java+Agent
+
+    The agent applies configurations in the following order of precedence.
+      1. Environment variables.
+      2. System properties passed on the command line.
+      3. Versioned agent properties.    /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/agent.properties
+      4. Global agent properties.       /$(Agent-Base-Install-Dir)/conf/agent.properties
+      5. Versioned configuration file.  /$(Agent-Base-Install-Dir)/ver$(agent-version-no)/conf/controller-info.xml
+      6. Global configuration file.     /$(Agent-Base-Install-Dir)/conf/controller-info.xml -->
+
+    <!-- The host name or the IP address of the AppDynamics Controller.
+    For example, ************ or myhost or myhost.abc.com
+    This is the same host that you use to access the AppDynamics Controller user interface.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_HOST_NAME' or
+    the system property '-Dappdynamics.controller.hostName' -->
+    <controller-host></controller-host>
+
+    <!-- The http(s) port of the AppDynamics Controller. If 'controller-ssl-enabled' below is set to true, you must
+    specify the HTTPS port of the Controller, otherwise specify the HTTP port. The Controller listens on port 8090 by default.
+    If you set 'controller-ssl-enabled' to true, the Controller listens on port 8181.
+    If you are using a saas Controller, the ssl port is 443
+    This is the same port that you use to access the AppDynamics Controller user interface.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_PORT' or
+    the system property '-Dappdynamics.controller.port' -->
+    <controller-port></controller-port>
+
+    <!-- Connect to the Controller using SSL(HTTPS). If you set this to true,
+    set the controller-port property to the HTTPS port for the Controller.
+    The agent only connects to the Controller using SSL when you enable this property. Otherwise, the
+    agent connects to the Controller using HTTP.
+    You can override this configuration with an environment variable 'APPDYNAMICS_CONTROLLER_SSL_ENABLED' or
+    the system property '-Dappdynamics.controller.ssl.enabled' -->
+    <controller-ssl-enabled></controller-ssl-enabled>
+
+    <!-- Truncate the hostname to remove the domain name.
+    For example, 'server.mydomain.com' becomes 'server'. Hostnames with no domain remain unchanged.
+    For exmaple; 'server'. -->
+    <use-simple-hostname>*****</use-simple-hostname>
+
+    <!-- The logical business application name that this jvm node belongs to.
+    This is not the deployment name (ear/war/jar) on the application server.
+    For example, you may name a business application name 'ACME Portal' if you are monitoring
+    a portal application or 'ACME ECommerce' etc. If a business application of this name does not exist,
+    the Controller creates one automatically.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_APPLICATION_NAME' or
+    the system property '-Dappdynamics.agent.applicationName' -->
+    <application-name></application-name>
+
+    <!-- The logical business tier this node belongs to.
+    For example, a tier can be 'ACME Frontend' or 'ACME Backend Service' etc.
+    If your JVM / appserver startup script contains a system property that you want to use for the tier name,
+    for example, -Dserver.tier, you can refer to the system property similarly: ${server.tier}
+    You can use expressions like ${server.tier}_${some.property}.MyTier to define the tier name.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_TIER_NAME' or
+    the system property '-Dappdynamics.agent.tierName' -->
+    <tier-name></tier-name>
+
+    <!-- Unique name for this jvm node. The name must be unique within the business application. e.g. weblogicinstance23 or
+    hweb24. If your JVM / appserver startup script contains a system property that you want to use for the node name,
+    For example, -Dserver.name, you can refer to the system property similarly: ${server.name}.
+    The value for server.name will be used as AppDynamics node name.
+    You can use expressions like ${server.name}_${host.name}.MyNode to define the node name.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_NODE_NAME' or
+    the system property '-Dappdynamics.agent.nodeName' -->
+    <node-name></node-name>
+
+    <!-- The runtime directory for all runtime files (logs, transaction configuration) for agent nodes using this agent
+    installation. This optional property defaults to the agent-installation-directory . If you specify a different directory,
+    the agent writes all agent logs to agent-runtime-dir/logs/node-name. The agent writes transaction configuration to files to
+    agent-runtime-dir/conf/node-name. You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_BASE_DIR'
+    or the system property '-Dappdynamics.agent.runtime.dir' -->
+    <agent-runtime-dir></agent-runtime-dir>
+
+    <!-- Enable features required for AppDynamics Orchestration.
+    When true, the agent is able to resolve the AppDynamics Controller host and port
+    when the host machine where this agent resides is created through AppDynamics Orchestration.
+    If the host machine where this agent resides is NOT created through Orchestration then LEAVE
+    this flag set to 'false'. -->
+    <enable-orchestration>false</enable-orchestration>
+
+    <!-- Encrypt agent credentials.
+    Before you enable Use Encrypted Credentials, see the instructions on how to initialize the
+    Secure Credential Store:
+    https://docs.appdynamics.com/display/LATEST/Encrypt+Credentials+for+Agent+Configuration
+    When true, the agent to uses encrypted credentials from the secure credential store.
+    When true, you must supply the credential store file name and the obfuscated credential store password. -->
+    <use-encrypted-credentials></use-encrypted-credentials>
+    <!-- Full qualified path name for the SCS-KeyStore file name. -->
+    <credential-store-filename></credential-store-filename>
+    <!-- Password for the 'Secure Credential Store' (SCS). This password must be obfuscated. -->
+    <credential-store-password></credential-store-password>
+    <!-- Format for the 'Secure Credential Store' (SCS).
+    The default format is JCEKS, but if a format like FIPS and a different security provider is chosen,
+    it should be ensured that all other certificates like cacerts also should be in this format -->
+    <credential-store-format></credential-store-format>
+    <!-- Enable agent-side mutual authentication with the Controller. Required when the Controller is configured for client authentication -->
+    <use-ssl-client-auth>false</use-ssl-client-auth>
+    <!-- Asymmetric keystore filename -->
+    <asymmetric-keystore-filename></asymmetric-keystore-filename>
+    <!-- Asymmetric keystore password - If SCS is enabled, use the encrypted password. -->
+    <asymmetric-keystore-password></asymmetric-keystore-password>
+    <!-- Asymmetric key password - If SCS is enabled, use the encrypted password. -->
+    <asymmetric-key-password></asymmetric-key-password>
+    <!-- Asymmetric key alias - Only set this alias if the keystore has multiple keys for deterministic key selection.-->
+    <asymmetric-key-alias></asymmetric-key-alias>
+
+    <!-- The account name for multi-tenant Controllers.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_ACCOUNT_NAME' or
+    the system property '-Dappdynamics.agent.accountName' -->
+    <account-name></account-name>
+    <!-- The account access key.
+    You can override this configuration with an environment variable 'APPDYNAMICS_AGENT_ACCOUNT_ACCESS_KEY' or
+    the system property '-Dappdynamics.agent.accountAccessKey'
+    if 'use-encrypted-credentials' is set to true, use the encrypted the account access key. -->
+    <account-access-key></account-access-key>
+
+    <!-- Change to 'true' only under special circumstances when you want to override this node's application name
+    or tier name after this agent has been moved to a new application and/or tier in the Controller UI. When true,
+    the agent uses the application name and/or tier name from the configuration file.-->
+    <force-agent-registration>false</force-agent-registration>
+
+
+</controller-info>
+
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  72b00504-d6db-49b7-9607-acb29456cccb  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Got AppDynamics config Setting from property: appdynamics.agent.nodeName=Server1
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  0cb5a8ed-65bf-4f3c-b02a-e2d0cb82063f  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Continuing Premain in the JVM Main Thread: Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread
+ERROR  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  b6c2f4da-e75b-445c-9055-5d7392bee4d9  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] ErrorOccurred==> Error in premain method: java.lang.IllegalStateException: Shutdown in progress
+
+java.lang.IllegalStateException: Shutdown in progress
+	at java.base/java.lang.ApplicationShutdownHooks.add(ApplicationShutdownHooks.java:66)
+	at java.base/java.lang.Runtime.addShutdownHook(Runtime.java:216)
+	at com.cisco.mtagent.boot.Controller.addShutdownHook(Controller.java:991)
+	at com.cisco.mtagent.boot.Controller.setUnitTestingAndShutdownHook(Controller.java:676)
+	at com.cisco.mtagent.entry.MTAgent._continuePremain(MTAgent.java:323)
+	at com.cisco.mtagent.entry.MTAgent.continuePremain(MTAgent.java:246)
+	at com.cisco.mtagent.entry.MTAgent.premain(MTAgent.java:163)
+	at com.cisco.mtagent.entry.MTAgent.dynamicServiceAndOSSExtensionPremain(MTAgent.java:126)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at com.cisco.mtagent.adaptors.AgentStartupHookAdaptor.run(AgentStartupHookAdaptor.java:465)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  fef4df2b-a81d-46f2-a2f5-907e684d3507  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Starting Full Agent Shutdown...
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  85148f8f-5a1b-4bd6-86df-1e6331b6acf2  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Current Agent Version is: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  aa205a75-3e59-4bcf-8ac0-b94daf0765cd  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Time spent in premain was 0 seconds
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  d402269c-e8f3-49b9-a881-01d2a42a8940  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9-](\d+\.\d+\.\d+\.\d+)[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  9fbc8379-cbc3-4270-be14-0426fe120fee  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9](\w+@\w+\.\w+)[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  fc4181b8-31f8-4057-b78d-cb57d94f8edf  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9](\d{3}-\d{2}-\d{4})[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  83a8f555-8b2a-4f95-9f53-5f03509ac7ab  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9](\d{3}-\d{3}-\d{4})[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  9ec5f54f-9829-42f8-9420-51942ed35c37  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9](\d{9})[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  69062f67-756d-4592-95b0-0375b9d2b509  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultNumbersMaskingGroup, pattern: [^a-zA-Z0-9](\d{10})[^a-zA-Z0-9], agent-masking: true, contains: null
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  45f5c23b-0876-4601-9fdc-9fc33d0af702  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*pass.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  4db29ce4-8522-41da-a119-4eb705174d5d  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*pass.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  7b264579-c6f4-4541-ba6a-b8d54b87eae9  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*.pwd.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  064b257a-a668-4acd-993b-d5ef84065c24  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*.pwd.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  5c579ffd-63fa-4b6f-9def-7c0fa82db357  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*key.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  83e9736b-f3b5-43ef-b71a-7dfbaa0939ec  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*key.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  5df79fd7-de3e-4c7c-89c7-3c9134d3fee8  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*token.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  a4af2d3a-f782-409c-a338-f7706eb01e2c  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*token.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  5d7022db-211d-437d-8803-42f811d12096  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*name.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  5c68ebde-ba6b-424e-9c74-b6e9c8515f23  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*name.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  958d235a-9417-4032-8a90-851c26aa59b6  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*address.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  46c6db4f-0bc2-48b8-b3c4-be6250492486  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*address.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  6e7aebb1-3cc9-4033-b2cf-dcc2d8a302aa  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*user.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  248c4a63-b2be-4092-a1fd-877d040acb84  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*user.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  dfadfaa1-a144-4cf3-b2bb-29c65bde48f6  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultPropertiesMaskingGroup, pattern: (?i)[^,\s]*phone.*?[=]([^,;&"\s]*), agent-masking: true, contains: =
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  c2d12f29-c97d-4781-aea8-a836fe06dd11  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Now adding mask from group Default-Agent-Masking:DefaultXMLMaskingGroup, pattern: (?i)<.*phone.*>(.*)</, agent-masking: true, contains: <
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  077b23ca-c485-48bf-8281-cb304b77b98d  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Done flushing 40 premain bootstrap logging messages...
+INFO  2026-05-22T12:22:53+08:00  GARYCHEW-M-7FVY  MultiTenantAgent  92932  bf07ab28-ce37-485c-a924-8baa179d3042  [Thread=Cisco-Multi-Tenant-Agent-Startup-Hook-Adapter-Thread] Renamed Dynamic Service log to: /Users/garychew/IdeaProjects/app2-server/multi-tenant-premain-shutdown/argentoDynamicService_05-22-2026-12.22.53_92932.log from /Users/garychew/AppServerAgent/ver26.2.1.37810/external-services/argentoDynamicService/argentoDynamicService_05-22-2026-12.22.53_92932.log
